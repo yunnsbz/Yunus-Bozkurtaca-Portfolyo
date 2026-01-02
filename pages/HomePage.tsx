@@ -26,9 +26,15 @@ const HomePage: React.FC = () => {
 
   const filteredProjects = activeCategory === 'All' 
     ? PROJECTS 
-    : PROJECTS.filter(p => p.category === activeCategory);
+    : PROJECTS.filter(p => p.categories.includes(activeCategory as ProjectCategory));
 
-  const categories: (ProjectCategory | 'All')[] = ['All', ProjectCategory.GAME_MAKING, ProjectCategory.TOOL_MAKING, ProjectCategory.ANDROID];
+  const categories: (ProjectCategory | 'All')[] = [
+    'All', 
+    ProjectCategory.GAME_MAKING, 
+    ProjectCategory.TOOL_MAKING, 
+    ProjectCategory.MOBILE, 
+    ProjectCategory.DESKTOP
+  ];
 
   return (
     <div className="space-y-20 pb-20">
@@ -39,7 +45,7 @@ const HomePage: React.FC = () => {
           <div>
             <h2 className="text-4xl font-bold mb-2">Select Projects</h2>
             <p className="text-gray-600 max-w-lg">
-              I explore the limits of game engines, software tools, and mobile ecosystems.
+              I explore the limits of game engines, software tools, and digital ecosystems.
             </p>
           </div>
           

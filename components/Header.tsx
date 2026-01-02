@@ -15,21 +15,46 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Ana sayfada mıyız kontrolü
   const isHome = location.pathname === '/' || location.pathname === '/projects' || location.pathname === '/contact';
 
   const handleNavClick = (sectionId: string) => {
     if (isHome) {
-      // Eğer ana sayfadaysak sadece aşağı kaydır
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
         navigate(`/${sectionId}`, { replace: true });
       }
     } else {
-      // Proje sayfasındaysak ana sayfaya git ve oradan kaydır
       navigate('/', { state: { scrollTo: sectionId } });
     }
+  };
+
+  /**
+   * Mailto bağlantısının çalışıp çalışmadığını anlamaya çalışan fonksiyon.
+   * Eğer mail uygulaması odağı çalmazsa (blur olmazsa), iletişim formuna kaydırır.
+   */
+  const handleContactAction = () => {
+    const mailtoUrl = "mailto:yunus21bzkrtc@gmail.com";
+    let wasBlurred = false;
+
+    // Pencere odağını kaybederse mail uygulaması açılmış demektir
+    const onBlur = () => {
+      wasBlurred = true;
+    };
+
+    window.addEventListener('blur', onBlur);
+
+    // Mailto'yu tetikle
+    window.location.href = mailtoUrl;
+
+    // 500ms bekle, eğer hala buradaysak ve blur olmadıysa fallback çalıştır
+    setTimeout(() => {
+      window.removeEventListener('blur', onBlur);
+      if (!wasBlurred) {
+        console.log("Mail istemcisi algılanamadı, forma yönlendiriliyor...");
+        handleNavClick('contact');
+      }
+    }, 500);
   };
 
   return (
@@ -67,16 +92,16 @@ const Header: React.FC = () => {
             Contact
           </button>
         </div>
-        <a 
-          href="mailto:yunus21bzkrtc@gmail.com"
-          className={`px-5 py-2 text-sm font-bold rounded-full transition-all ${
+        <button 
+          onClick={handleContactAction}
+          className={`px-5 py-2 text-sm font-bold rounded-full transition-all active:scale-95 ${
             isScrolled || isHome
               ? 'bg-black text-white hover:bg-gray-800'
               : 'bg-white text-black hover:bg-gray-200'
           }`}
         >
           Contact Me
-        </a>
+        </button>
       </div>
     </nav>
   );

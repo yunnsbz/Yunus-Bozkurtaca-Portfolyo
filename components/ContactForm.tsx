@@ -4,7 +4,7 @@ import React from 'react';
 const ContactForm: React.FC = () => {
   return (
     <div className="mt-16 bg-white p-8 md:p-12 rounded-[2rem] border border-gray-100 shadow-xl max-w-2xl mx-auto">
-      <h3 className="text-2xl font-bold mb-2">Send Me a Message</h3>
+      <h3 className="text-2xl font-bold mb-2">Send Me A Message</h3>
       <p className="text-gray-500 mb-8">Feel free to reach out to discuss projects, collaborations, or just to say hi.</p>
       
       <form 
@@ -50,6 +50,7 @@ const ContactForm: React.FC = () => {
           <textarea
             name="message"
             id="message"
+            required
             rows={5}
             placeholder="What would you like to talk about?"
             className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all resize-none"

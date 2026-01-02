@@ -11,32 +11,60 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative pt-40 pb-20 overflow-hidden">
-      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] bg-blue-100 rounded-full blur-[120px] opacity-50 z-0"></div>
-      <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[500px] h-[500px] bg-purple-100 rounded-full blur-[120px] opacity-50 z-0"></div>
+    <section className="relative pt-16 pb-12 lg:pt-32 lg:pb-24 overflow-hidden bg-white">
+      {/* Soft Background Accent */}
+      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] bg-gray-50 rounded-full blur-[100px] z-0"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl">
-          <span className="inline-block px-4 py-1.5 bg-black text-white rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-            Computer Engineering Graduate
-          </span>
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[1.1] mb-8">
-            Building digital worlds <span className="text-gray-400">&</span> custom tools.
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-10">
-            Hi, I'm <span className="text-black font-bold">Yunus Bozkurtaca</span>. I specialize in Game Development with Unity, creating robust Tool systems, and building high-quality Android applications.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <button 
-              onClick={scrollToProjects}
-              className="px-8 py-4 bg-black text-white font-bold rounded-2xl hover:bg-gray-800 transition-all transform hover:-translate-y-1"
-            >
-              Explore Projects
-            </button>
-            <a href="https://linkedin.com/in/yunusbozkurtaca" target="_blank" className="px-8 py-4 bg-white border border-gray-200 text-black font-bold rounded-2xl hover:border-black transition-all">
-              LinkedIn Profile
-            </a>
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
+          
+          {/* Mobile: Top | Desktop: Right */}
+          <div className="w-full lg:w-2/5 flex justify-center lg:justify-end order-1 lg:order-2">
+            <div className="relative w-full max-w-[280px] md:max-w-[320px]">
+              <div className="aspect-square rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                <img 
+                  src="images\photo.png" 
+                  alt="Yunus Bozkurtaca Profile" 
+                  className="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
+            </div>
           </div>
+
+          {/* Mobile: Bottom | Desktop: Left */}
+          <div className="w-full lg:w-3/5 text-center lg:text-left order-2 lg:order-1">
+            <div className="mb-6">
+              <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-md text-[10px] font-black uppercase tracking-[0.2em]">
+                Computer Engineering Graduate
+              </span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] mb-8 text-black">
+              Building digital <br className="hidden lg:block" /> worlds <span className="text-gray-300">&</span> tools.
+            </h1>
+            
+            <p className="text-lg md:text-xl text-gray-500 leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
+              Hi, I'm <span className="text-black font-semibold">Yunus Bozkurtaca</span>. I focus on Game Development with Unity, creating custom Editor Tools, and building high-performance Android applications.
+            </p>
+            
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+              <button 
+                onClick={scrollToProjects}
+                className="px-8 py-4 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition-all transform hover:-translate-y-0.5 shadow-md active:scale-95 text-sm"
+              >
+                Explore Projects
+              </button>
+              <a 
+                href="https://linkedin.com/in/yunusbozkurtaca" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-white border border-gray-200 text-black font-bold rounded-xl hover:border-black hover:bg-gray-50 transition-all active:scale-95 text-sm"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
+          
         </div>
       </div>
     </section>

@@ -2,7 +2,8 @@
 export enum ProjectCategory {
   GAME_MAKING = 'Game Making',
   TOOL_MAKING = 'Tool Making',
-  ANDROID = 'Android'
+  MOBILE = 'Mobile',
+  DESKTOP = 'Desktop Applications'
 }
 
 export interface Project {
@@ -10,8 +11,8 @@ export interface Project {
   title: string;
   shortDescription: string;
   longDescription: string;
-  category: ProjectCategory;
-  imageUrl: string;
+  categories: ProjectCategory[];
+  images: string[];
   bgImageUrl: string;
   gifUrl?: string;
   youtubeId?: string;
@@ -19,5 +20,6 @@ export interface Project {
   storeUrl?: string;
   date: string;
   features: string[];
+  techStack: string[];
   technicalDetails?: string[];
 }
