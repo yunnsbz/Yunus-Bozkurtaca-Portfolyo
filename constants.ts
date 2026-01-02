@@ -35,9 +35,9 @@ export const PROJECTS: Project[] = [
     longDescription: 'A custom Unity Editor tool designed to solve inefficiencies in managing multiple Scriptable Objects. It allows developers to edit various types of data within a single, streamlined window.',
     categories: [ProjectCategory.TOOL_MAKING],
     images: [
-      'images/scriptable-object-manager-galery1.png',
+      '/images/scriptable-object-manager-gallery1.png',
     ],
-    bgImageUrl: '/images/scriptable-object-manager-galery1.png',
+    bgImageUrl: '/images/scriptable-object-manager-gallery1.png',
     githubUrl: 'https://github.com/yunnsbz/Unity-Scriptable-Object-Tool',
     date: 'Feb 2025 - May 2025',
     features: [
@@ -59,12 +59,12 @@ export const PROJECTS: Project[] = [
     longDescription: 'A comprehensive 3D mobile game project featuring advanced framework development. The game implements complex AI systems using coroutines and performance-heavy mechanics like object pooling.',
     categories: [ProjectCategory.GAME_MAKING, ProjectCategory.MOBILE],
     images: [
-      'images/topdown-shooter-galery4.png',
-      'images/topdown-shooter-galery1.png',
-      'images/topdown-shooter-galery2.png',
-      'images/topdown-shooter-galery3.png',
+      '/images/topdown-shooter-gallery4.png',
+      '/images/topdown-shooter-gallery1.png',
+      '/images/topdown-shooter-gallery2.png',
+      '/images/topdown-shooter-gallery3.png',
     ],
-    bgImageUrl: 'images/topdown-shooter-galery4.png',
+    bgImageUrl: '/images/topdown-shooter-gallery4.png',
     date: 'July 2024 - June 2025',
     features: [
       'Advanced and extensible gameplay systems for a 3D mobile game',
@@ -89,11 +89,11 @@ export const PROJECTS: Project[] = [
     longDescription: 'An efficient and responsive desktop application for file management. It utilizes multithreading for asynchronous operations and features a custom-built intuitive GUI.',
     categories: [ProjectCategory.TOOL_MAKING, ProjectCategory.DESKTOP],
     images: [
-      'images/file-manager-galery1.png',
-      'images/file-manager-galery2.png',
-      'images/file-manager-galery3.png'
+      '/images/file-manager-gallery1.png',
+      '/images/file-manager-gallery2.png',
+      '/images/file-manager-gallery3.png'
     ],
-    bgImageUrl: '/images/file-manager-galery1.png',
+    bgImageUrl: '/images/file-manager-gallery1.png',
     githubUrl: 'https://github.com/yunnsbz/File-Manager',
     date: 'Mar 2025 - Present',
     features: [
@@ -115,12 +115,12 @@ export const PROJECTS: Project[] = [
     longDescription: 'Successfully published a large-scale 2D mobile game on the Play Store. This project involved deep optimization to ensure smooth gameplay on a wide range of mobile devices.',
     categories: [ProjectCategory.GAME_MAKING, ProjectCategory.MOBILE],
     images: [
-      'images/block-saga-galery1.png',
-      'images/block-saga-galery2.png',
-      'images/block-saga-galery3.png',
-      'images/block-saga-galery4.png',
+      '/images/block-saga-gallery1.png',
+      '/images/block-saga-gallery2.png',
+      '/images/block-saga-gallery3.png',
+      '/images/block-saga-gallery4.png',
     ],
-    bgImageUrl: 'images/block-saga-galery2.png',
+    bgImageUrl: '/images/block-saga-gallery2.png',
     date: 'Jan 2024 - Nov 2024',
     storeUrl: 'https://play.google.com/store/apps/details?id=com.KartGameClub.Blocksaga',
     features: [
@@ -141,10 +141,10 @@ export const PROJECTS: Project[] = [
     longDescription: 'A modern Android application implementing advanced mathematical functions. The project focuses on clean UI design and robust object-oriented programming in Kotlin.',
     categories: [ProjectCategory.MOBILE],
     images: [
-      'images/calculator-galery1.png',
-      'images/calculator-galery2.png'
+      '/images/calculator-gallery1.png',
+      '/images/calculator-gallery2.png'
     ],
-    bgImageUrl: 'images/calculator-galery1.png',
+    bgImageUrl: '/images/calculator-gallery1.png',
     githubUrl: 'https://github.com/yunnsbz/calculator',
     date: 'Sep 2023',
     features: [
@@ -165,9 +165,9 @@ export const PROJECTS: Project[] = [
     longDescription: 'A specialized tool for monitoring financial strategies. It features custom UI elements built with QPaint and high-performance filtering for complex data sets.',
     categories: [ProjectCategory.TOOL_MAKING, ProjectCategory.DESKTOP],
     images: [
-      'images/strategy-sim-galery1.png'
+      '/images/strategy-sim-gallery1.png'
     ],
-    bgImageUrl: 'images/strategy-sim-galery1.png',
+    bgImageUrl: '/images/strategy-sim-gallery1.png',
     date: 'June 2025',
     githubUrl: 'https://github.com/yunnsbz/StrategyMonitor',
     features: [
@@ -189,11 +189,11 @@ export const PROJECTS: Project[] = [
     longDescription: 'This project is a bookstore sales and automation application developed using Java, featuring separate interfaces for users and administrators. Users can search for and purchase books, while administrators can manage book information and control the system after logging in. The application was developed as a second-year semester project and achieved a full score due to its detailed visual interface and functionality.',
     categories: [ProjectCategory.TOOL_MAKING, ProjectCategory.DESKTOP],
     images: [
-      'images/book-shop-manager-galery1.png',
-      'images/book-shop-manager-galery2.png',
-      'images/book-shop-manager-galery3.png'
+      '/images/book-shop-manager-gallery1.png',
+      '/images/book-shop-manager-gallery2.png',
+      '/images/book-shop-manager-gallery3.png'
     ],
-    bgImageUrl: 'images/book-shop-manager-galery2.png',
+    bgImageUrl: '/images/book-shop-manager-gallery2.png',
     date: 'Feb 2023 - June 2023',
     features: [
       'Book search functionality',
@@ -211,11 +211,11 @@ export const PROJECTS: Project[] = [
     longDescription: 'A command-line implementation of the popular board game 101 Okey. The game supports tile distribution, turn-based gameplay, and core rules in a text-based format. Developed in C during university to strengthen algorithmic thinking and game logic skills.',
     categories: [ProjectCategory.GAME_MAKING],
     images: [
-      'images/okey-game-galery1.png',
-      'images/okey-game-galery2.png',
-      'images/okey-game-galery3.png',
+      '/images/okey-game-gallery1.png',
+      '/images/okey-game-gallery2.png',
+      '/images/okey-game-gallery3.png',
     ],
-    bgImageUrl: '/images/okey-game-galery3.png',
+    bgImageUrl: '/images/okey-game-gallery3.png',
     githubUrl: 'https://github.com/yunnsbz/101okey',
     date: 'Mar 2022 - Apr 2022',
     features: [

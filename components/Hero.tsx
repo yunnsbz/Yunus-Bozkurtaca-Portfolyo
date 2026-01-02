@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
             <div className="relative w-full max-w-[280px] md:max-w-[320px]">
               <div className="aspect-square rounded-3xl overflow-hidden shadow-lg border border-gray-100">
                 <img 
-                  src="images\photo.png" 
+                  src="/images/photo.png" 
                   alt="Yunus Bozkurtaca Profile" 
                   className="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-700"
                 />
