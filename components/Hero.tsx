@@ -1,7 +1,9 @@
 
 import React from 'react';
+import { useLanguage } from '../LanguageContext';
 
 const Hero: React.FC = () => {
+  const { t } = useLanguage();
   const scrollToProjects = (e: React.MouseEvent) => {
     e.preventDefault();
     const element = document.getElementById('projects');
@@ -35,16 +37,26 @@ const Hero: React.FC = () => {
           <div className="w-full lg:w-3/5 text-center lg:text-left order-2 lg:order-1">
             <div className="mb-6">
               <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-md text-[10px] font-black uppercase tracking-[0.2em]">
-                Computer Engineering Graduate
+                {t('hero_badge')}
               </span>
             </div>
             
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] mb-8 text-black">
-              Building digital <br className="hidden lg:block" /> worlds <span className="text-gray-300">&</span> tools.
+              {t('hero_title').split('&').map((part, i) => (
+                <React.Fragment key={i}>
+                  {i > 0 && <span className="text-gray-300">&</span>}
+                  {part}
+                </React.Fragment>
+              ))}
             </h1>
             
             <p className="text-lg md:text-xl text-gray-500 leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
-              Hi, I'm <span className="text-black font-semibold">Yunus Bozkurtaca</span>. I focus on Game Development with Unity, creating custom Editor Tools, and building high-performance Android applications.
+              {t('hero_desc').split('_name_').map((part, i) => (
+                <React.Fragment key={i}>
+                  {i > 0 && <span className="text-black font-semibold">Yunus Bozkurtaca</span>}
+                  {part}
+                </React.Fragment>
+              ))}
             </p>
             
             <div className="flex flex-wrap justify-center lg:justify-start gap-4">
@@ -52,7 +64,7 @@ const Hero: React.FC = () => {
                 onClick={scrollToProjects}
                 className="px-8 py-4 bg-black text-white font-bold rounded-xl hover:bg-gray-800 transition-all transform hover:-translate-y-0.5 shadow-md active:scale-95 text-sm"
               >
-                Explore Projects
+                {t('hero_explore')}
               </button>
               <a 
                 href="https://linkedin.com/in/yunusbozkurtaca" 

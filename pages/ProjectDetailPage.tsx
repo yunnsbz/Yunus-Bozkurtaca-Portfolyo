@@ -2,19 +2,31 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { PROJECTS } from '../constants';
+import LazyImage from '../components/LazyImage';
+import { useLanguage } from '../LanguageContext';
+import { CategoryTranslations } from '../types';
 
 const ProjectDetailPage: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
   const navigate = useNavigate();
+  const { language, t } = useLanguage();
   const project = PROJECTS.find((p) => p.id === projectId);
   
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [isFullscreenOpen, setIsFullscreenOpen] = useState(false);
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
+  const [bgLoaded, setBgLoaded] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [projectId]);
+    
+    // Arka plan resmini önceden yükle
+    if (project?.bgImageUrl) {
+      const img = new Image();
+      img.src = project.bgImageUrl;
+      img.onload = () => setBgLoaded(true);
+    }
+  }, [projectId, project?.bgImageUrl]);
 
   useEffect(() => {
     if (isFullscreenOpen) {
@@ -28,8 +40,8 @@ const ProjectDetailPage: React.FC = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
         <div className="bg-white p-12 rounded-2xl shadow-xl text-center">
-          <h2 className="text-3xl font-bold mb-4">Project Not Found</h2>
-          <Link to="/" className="text-blue-600 hover:underline">Return Home</Link>
+          <h2 className="text-3xl font-bold mb-4">{t('not_found')}</h2>
+          <Link to="/" className="text-blue-600 hover:underline">{t('return_home')}</Link>
         </div>
       </div>
     );
@@ -97,12 +109,21 @@ const ProjectDetailPage: React.FC = () => {
         </div>
       )}
 
-      {/* Background Image */}
-      <div 
-        className="fixed inset-0 w-full h-full bg-cover bg-center z-0" 
-        style={{ backgroundImage: `url('${project.bgImageUrl}')` }}
-      >
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-[6px]"></div>
+      {/* Progressive Background Logic */}
+      <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
+        {/* Step 1: Base Color (Always visible but fades out after load) */}
+        <div className="absolute inset-0 bg-[#1a1a1a]"></div>
+        
+        {/* Step 2: Intermediate Gray/Color (Simulates loading depth) */}
+        <div className={`absolute inset-0 bg-[#2d2d2d] transition-opacity duration-[1500ms] ${bgLoaded ? 'opacity-0' : 'opacity-100'}`}></div>
+
+        {/* Step 3: Final Image with Blur and Dark Overlay */}
+        <div 
+          className={`absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-[2000ms] ease-out ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} 
+          style={{ backgroundImage: `url('${project.bgImageUrl}')` }}
+        >
+          <div className="absolute inset-0 bg-black/65 backdrop-blur-[6px]"></div>
+        </div>
       </div>
 
       <div className="relative z-10 pt-32 pb-20 px-6">
@@ -111,25 +132,25 @@ const ProjectDetailPage: React.FC = () => {
             onClick={() => navigate(-1)}
             className="mb-12 text-white/70 hover:text-white flex items-center gap-2 transition-colors group"
           >
-            <span className="group-hover:-translate-x-1 transition-transform">←</span> Back to Projects
+            <span className="group-hover:-translate-x-1 transition-transform">←</span> {t('back_to_projects')}
           </button>
 
           <header className="mb-16">
             <div className="flex flex-wrap gap-3 mb-6">
               {project.categories.map((cat, idx) => (
                 <span key={idx} className="px-3 py-1 bg-white/20 text-white rounded-lg text-xs font-bold backdrop-blur-md">
-                  {cat}
+                  {CategoryTranslations[language][cat]}
                 </span>
               ))}
               <span className="px-3 py-1 bg-white/10 text-white/80 rounded-lg text-xs font-bold backdrop-blur-md">
-                {project.date}
+                {project.date[language]}
               </span>
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter">
-              {project.title}
+              {project.title[language]}
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl">
-              {project.longDescription}
+              {project.longDescription[language]}
             </p>
           </header>
 
@@ -139,17 +160,18 @@ const ProjectDetailPage: React.FC = () => {
               {/* GALLERY AREA - Responsive Aspect Ratio & Non-Cropping Image */}
               <div className="relative h-[400px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl bg-black/40 border border-white/10 group flex items-center justify-center">
                 
-                {/* Blurred Backdrop to fill empty spaces elegantly */}
+                {/* Dynamic Blurred Backdrop for Gallery */}
                 <div 
                   className="absolute inset-0 w-full h-full bg-cover bg-center blur-[60px] opacity-20 scale-110 pointer-events-none transition-all duration-700"
                   style={{ backgroundImage: `url('${project.images[currentGalleryIndex]}')` }}
                 ></div>
 
-                {/* Main Content Image (Contain) */}
-                <img 
+                {/* Main Content Image (Lazy Loaded with Skeleton) */}
+                <LazyImage 
                   src={project.images[currentGalleryIndex]} 
-                  alt={`${project.title} view ${currentGalleryIndex + 1}`} 
-                  className="relative z-10 max-w-full max-h-full object-contain cursor-zoom-in transition-all duration-500 hover:scale-[1.01]"
+                  alt={`${project.title[language]} view ${currentGalleryIndex + 1}`} 
+                  containerClassName="w-full h-full flex items-center justify-center"
+                  className="relative z-10 max-w-full max-h-full object-contain cursor-zoom-in hover:scale-[1.01]"
                   onClick={() => setIsFullscreenOpen(true)}
                 />
                 
@@ -158,13 +180,15 @@ const ProjectDetailPage: React.FC = () => {
                   <>
                     <button 
                       onClick={prevImage}
-                      className="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 z-20 flex items-center justify-center bg-black/20 hover:bg-black/60 text-white rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 border border-white/5"
+                      className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 z-20 flex items-center justify-center bg-black/40 md:bg-black/20 md:hover:bg-black/60 text-white rounded-full backdrop-blur-sm transition-all md:opacity-0 md:group-hover:opacity-100 border border-white/10"
+                      aria-label="Previous Image"
                     >
                       <ChevronLeft />
                     </button>
                     <button 
                       onClick={nextImage}
-                      className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 z-20 flex items-center justify-center bg-black/20 hover:bg-black/60 text-white rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 border border-white/5"
+                      className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 z-20 flex items-center justify-center bg-black/40 md:bg-black/20 md:hover:bg-black/60 text-white rounded-full backdrop-blur-sm transition-all md:opacity-0 md:group-hover:opacity-100 border border-white/10"
+                      aria-label="Next Image"
                     >
                       <ChevronRight />
                     </button>
@@ -225,7 +249,7 @@ const ProjectDetailPage: React.FC = () => {
                     className="w-full flex items-center justify-between p-8 text-white font-bold text-xl hover:bg-white/5 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <span>Technical Details</span>
+                      <span>{t('technical_details_title')}</span>
                     </div>
                     <span className={`text-2xl transition-transform duration-500 ${isMoreOpen ? 'rotate-180' : ''}`}>
                       ↓
@@ -236,7 +260,7 @@ const ProjectDetailPage: React.FC = () => {
                     <div className="overflow-hidden">
                       <div className="p-4 pt-4 border-t border-white/5">
                         <ul className="space-y-4">
-                          {project.technicalDetails.map((detail, idx) => (
+                          {project.technicalDetails[language].map((detail, idx) => (
                             <li key={idx} className="flex gap-4 text-white/80 leading-relaxed">
                               <span className="font-bold">▸</span>
                               <span>{detail}</span>
@@ -254,10 +278,10 @@ const ProjectDetailPage: React.FC = () => {
             <div className="space-y-8">
               <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-3xl text-white shadow-xl sticky top-32">
                 <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-                  <span>🛠️</span> Key Features
+                  <span>🛠️</span> {t('sidebar_features')}
                 </h3>
                 <ul className="space-y-4 mb-8">
-                  {project.features.map((feature, idx) => (
+                  {project.features[language].map((feature, idx) => (
                     <li key={idx} className="flex gap-3 text-white/80 leading-snug">
                       <span className="text-white">•</span>
                       <span>{feature}</span>
@@ -272,7 +296,7 @@ const ProjectDetailPage: React.FC = () => {
                       target="_blank"
                       className="flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-colors shadow-lg"
                     >
-                      View Repository
+                      {t('view_repo')}
                     </a>
                   </div>
                 )}
@@ -284,13 +308,13 @@ const ProjectDetailPage: React.FC = () => {
                       target="_blank"
                       className="block w-full py-4 text-center bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-colors"
                     >
-                      View Store Page
+                      {t('view_store_page')}
                     </a>
                   </div>
                 )}
 
                 <div className="mt-8 pt-8 border-t border-white/10">
-                  <h3 className="text-lg font-bold mb-4">Tech Stack</h3>
+                  <h3 className="text-lg font-bold mb-4">{t('sidebar_tech')}</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map(tag => (
                       <span key={tag} className="px-3 py-1 bg-white/10 rounded-lg text-xs font-medium border border-white/5">

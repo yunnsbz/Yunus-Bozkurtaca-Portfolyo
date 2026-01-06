@@ -1,16 +1,43 @@
 
+export type Language = 'en' | 'tr';
+
 export enum ProjectCategory {
-  GAME_MAKING = 'Game Making',
+  GAME_MAKING = 'Game Development',
   TOOL_MAKING = 'Tool Making',
-  MOBILE = 'Mobile',
+  MOBILE = 'Mobile Development',
   DESKTOP = 'Desktop Applications'
+}
+
+export const CategoryTranslations: Record<Language, Record<ProjectCategory, string>> = {
+  en: {
+    [ProjectCategory.GAME_MAKING]: 'Game Development',
+    [ProjectCategory.TOOL_MAKING]: 'Tool Making',
+    [ProjectCategory.MOBILE]: 'Mobile Development',
+    [ProjectCategory.DESKTOP]: 'Desktop Apps'
+  },
+  tr: {
+    [ProjectCategory.GAME_MAKING]: 'Oyun Geliştirme',
+    [ProjectCategory.TOOL_MAKING]: 'Araç Geliştirme',
+    [ProjectCategory.MOBILE]: 'Mobil Geliştirme',
+    [ProjectCategory.DESKTOP]: 'Masaüstü Uygulamaları'
+  }
+};
+
+export interface LocalizedString {
+  en: string;
+  tr: string;
+}
+
+export interface LocalizedArray {
+  en: string[];
+  tr: string[];
 }
 
 export interface Project {
   id: string;
-  title: string;
-  shortDescription: string;
-  longDescription: string;
+  title: LocalizedString;
+  shortDescription: LocalizedString;
+  longDescription: LocalizedString;
   categories: ProjectCategory[];
   images: string[];
   bgImageUrl: string;
@@ -18,8 +45,8 @@ export interface Project {
   youtubeId?: string;
   githubUrl?: string;
   storeUrl?: string;
-  date: string;
-  features: string[];
+  date: LocalizedString;
+  features: LocalizedArray;
   techStack: string[];
-  technicalDetails?: string[];
+  technicalDetails?: LocalizedArray;
 }

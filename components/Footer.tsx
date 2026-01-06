@@ -1,13 +1,15 @@
 
 import React from 'react';
+import { useLanguage } from '../LanguageContext';
 
 const Footer: React.FC = () => {
+  const { t } = useLanguage();
   return (
     <footer className="bg-white border-t border-gray-100 py-12">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
           <p className="text-xl font-black tracking-tighter">YB.</p>
-          <p className="text-sm text-gray-500 mt-2">© {new Date().getFullYear()} Yunus Bozkurtaca. All rights reserved.</p>
+          <p className="text-sm text-gray-500 mt-2">© {new Date().getFullYear()} Yunus Bozkurtaca. {t('footer_rights')}</p>
         </div>
         <div className="flex gap-8">
           <a href="https://github.com/yunnsbz" target="_blank" className="text-gray-400 hover:text-black transition-colors">Github</a>
