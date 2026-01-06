@@ -102,8 +102,9 @@ export const PROJECTS: Project[] = [
     },
     categories: [ProjectCategory.GAME_MAKING, ProjectCategory.MOBILE],
     images: [
+      '/images/top-down-galery5.jpeg',
+      '/images/top-down-galery6.jpeg',
       '/images/topdown-shooter-gallery4.png',
-      '/images/topdown-shooter-gallery1.png',
       '/images/topdown-shooter-gallery2.png',
       '/images/topdown-shooter-gallery3.png',
     ],
@@ -145,6 +146,46 @@ export const PROJECTS: Project[] = [
   },
 
   {
+    id: 'block-saga-mobile',
+    title: { en: 'Block Saga Mobile Game', tr: 'Block Saga Mobil Oyun' },
+    shortDescription: {
+      en: 'Published 2D mobile game available on Google Play Store.',
+      tr: 'Google Play Store’da yayımlanmış 2D mobil oyun.'
+    },
+    longDescription: {
+      en: 'Successfully published a large-scale 2D mobile game on the Play Store. This project involved deep optimization to ensure smooth gameplay on a wide range of mobile devices.',
+      tr: 'Google Play Store’da başarılı şekilde yayımlanmış büyük ölçekli bir 2D mobil oyundur. Proje, farklı donanımlara sahip cihazlarda akıcı oynanış sağlamak için yoğun optimizasyon çalışmaları içermektedir.'
+    },
+    categories: [ProjectCategory.GAME_MAKING, ProjectCategory.MOBILE],
+    images: [
+      '/images/block-saga-gallery1.png',
+      '/images/block-saga-gallery2.png',
+      '/images/block-saga-gallery3.png',
+      '/images/block-saga-gallery4.png',
+    ],
+    bgImageUrl: '/images/block-saga-gallery2.png',
+    date: { en: 'Jan 2024 - Nov 2024', tr: 'Ocak 2024 - Kasım 2024' },
+    storeUrl: 'https://play.google.com/store/apps/details?id=com.KartGameClub.Blocksaga',
+    features: {
+      en: [
+        'Full lifecycle development from concept to publication',
+        'Performance bottleneck resolution using coroutines',
+        'Agile workflow coordination using Miro and Jira',
+        'Responsive UI for various screen ratios',
+        'Google AdMob for Rewarded Ads'
+      ],
+      tr: [
+        'Fikir aşamasından yayınlanmaya kadar tam geliştirme süreci',
+        'Coroutine kullanarak performans darboğazlarının giderilmesi',
+        'Miro ve Jira ile çevik iş akışı yönetimi',
+        'Farklı ekran oranlarına uyumlu kullanıcı arayüzü',
+        'Ödüllü reklamlar için Google AdMob entegrasyonu'
+      ]
+    },
+    techStack: ['Unity', 'C#', 'Addressables', 'Git', 'Unity Version Control', 'Google AdMob'],
+  },
+
+  {
     id: 'qt-file-manager',
     title: { en: 'QT File Manager', tr: 'QT Dosya Yöneticisi' },
     shortDescription: {
@@ -176,7 +217,7 @@ export const PROJECTS: Project[] = [
         'Özel klasör ağaç navigasyonu'
       ]
     },
-    techStack: ['QT8', 'C++', 'QT Creator', 'Git'],
+    techStack: ['QT6.8', 'C++', 'QT Creator', 'Git'],
     technicalDetails: {
       en: [
         'Lock-free queue implementation for inter-thread file operation requests.',
@@ -188,88 +229,6 @@ export const PROJECTS: Project[] = [
         'Gelişmiş ikon önbellekleme için özel QFileSystemModel türevi',
         'Sağ tık menüsü desteği için Windows Shell API entegrasyonu'
       ]
-    },
-  },
-
-  {
-    id: 'block-saga-mobile',
-    title: { en: 'Block Saga Mobile Game', tr: 'Block Saga Mobil Oyun' },
-    shortDescription: {
-      en: 'Published 2D mobile game available on Google Play Store.',
-      tr: 'Google Play Store’da yayımlanmış 2D mobil oyun.'
-    },
-    longDescription: {
-      en: 'Successfully published a large-scale 2D mobile game on the Play Store. This project involved deep optimization to ensure smooth gameplay on a wide range of mobile devices.',
-      tr: 'Google Play Store’da başarılı şekilde yayımlanmış büyük ölçekli bir 2D mobil oyundur. Proje, farklı donanımlara sahip cihazlarda akıcı oynanış sağlamak için yoğun optimizasyon çalışmaları içermektedir.'
-    },
-    categories: [ProjectCategory.GAME_MAKING, ProjectCategory.MOBILE],
-    images: [
-      '/images/block-saga-gallery1.png',
-      '/images/block-saga-gallery2.png',
-      '/images/block-saga-gallery3.png',
-      '/images/block-saga-gallery4.png',
-    ],
-    bgImageUrl: '/images/block-saga-gallery2.png',
-    date: { en: 'Jan 2024 - Nov 2024', tr: 'Ocak 2024 - Kasım 2024' },
-    storeUrl: 'https://play.google.com/store/apps/details?id=com.KartGameClub.Blocksaga',
-    features: {
-      en: [
-        'Full lifecycle development from concept to publication',
-        'Performance bottleneck resolution using coroutines',
-        'Agile workflow coordination using Miro and Jira',
-        'Responsive UI for various screen ratios'
-      ],
-      tr: [
-        'Fikir aşamasından yayınlanmaya kadar tam geliştirme süreci',
-        'Coroutine kullanarak performans darboğazlarının giderilmesi',
-        'Miro ve Jira ile çevik iş akışı yönetimi',
-        'Farklı ekran oranlarına uyumlu kullanıcı arayüzü'
-      ]
-    },
-    techStack: ['Unity', 'C#', 'Addressables', 'Git', 'Unity Version Control', 'Google AdMob'],
-    technicalDetails: {
-      en: ['Google AdMob for Rewarded Ads'],
-      tr: ['Ödüllü reklamlar için Google AdMob entegrasyonu']
-    },
-  },
-
-  {
-    id: 'scientific-calculator',
-    title: { en: 'Scientific Calculator App', tr: 'Bilimsel Hesap Makinesi Uygulaması' },
-    shortDescription: {
-      en: 'Feature-rich calculator built with Kotlin and Android Studio.',
-      tr: 'Kotlin ve Android Studio ile geliştirilmiş, kapsamlı özelliklere sahip hesap makinesi.'
-    },
-    longDescription: {
-      en: 'A modern Android application implementing advanced mathematical functions. The project focuses on clean UI design and robust object-oriented programming in Kotlin.',
-      tr: 'Gelişmiş matematiksel fonksiyonlar içeren modern bir Android uygulamasıdır. Proje, temiz arayüz tasarımı ve Kotlin ile sağlam nesne yönelimli programlamaya odaklanmaktadır.'
-    },
-    categories: [ProjectCategory.MOBILE],
-    images: [
-      '/images/calculator-gallery1.png',
-      '/images/calculator-gallery2.png'
-    ],
-    bgImageUrl: '/images/calculator-gallery1.png',
-    githubUrl: 'https://github.com/yunnsbz/calculator',
-    date: { en: 'Sep 2023', tr: 'Eylül 2023' },
-    features: {
-      en: [
-        'Advanced mathematical function integration',
-        'Clean and intuitive UI using modern Android components',
-        'Deep object-oriented implementation in Kotlin',
-        'Optimized for mobile performance'
-      ],
-      tr: [
-        'Gelişmiş matematiksel fonksiyon entegrasyonu',
-        'Modern Android bileşenleri ile temiz ve sezgisel arayüz',
-        'Kotlin ile derinlemesine nesne yönelimli yapı',
-        'Mobil performans için optimize edilmiş yapı'
-      ]
-    },
-    techStack: ['Kotlin', 'Android Studio'],
-    technicalDetails: {
-      en: ['Support for both light and dark modes with Material Design 3.'],
-      tr: ['Material Design 3 ile açık ve koyu tema desteği']
     },
   },
 
@@ -303,7 +262,7 @@ export const PROJECTS: Project[] = [
         'Temiz ve sürdürülebilir yazılım mimarisi'
       ]
     },
-    techStack: ['QT8', 'C++', 'QT Creator', 'Git'],
+    techStack: ['QT6.8', 'C++', 'QT Creator', 'Git'],
     technicalDetails: {
       en: [
         'MVVM architecture pattern with LiveData for UI reactivity.',
@@ -314,42 +273,6 @@ export const PROJECTS: Project[] = [
         'Düşük gecikmeli signal-slot yapısı ile gerçek zamanlı veri işleme'
       ]
     },
-  },
-
-  {
-    id: 'book-shop-manager',
-    title: { en: 'Book Shop Manager', tr: 'Kitapçı Yönetim Sistemi' },
-    shortDescription: {
-      en: 'Java bookstore app with user purchases and admin management.',
-      tr: 'Kullanıcı satın alma ve yönetici paneli içeren Java tabanlı kitapçı uygulaması.'
-    },
-    longDescription: {
-      en: 'This project is a bookstore sales and automation application developed using Java, featuring separate interfaces for users and administrators. Users can search for and purchase books, while administrators can manage book information and control the system after logging in. The application was developed as a second-year semester project and achieved a full score due to its detailed visual interface and functionality.',
-      tr: 'Java kullanılarak geliştirilen bu proje, kullanıcılar ve yöneticiler için ayrı arayüzlere sahip bir kitap satış ve otomasyon uygulamasıdır. Kullanıcılar kitap arayıp satın alabilirken, yöneticiler giriş yaptıktan sonra kitap bilgilerini ve sistemi yönetebilir. İkinci sınıf dönem projesi olarak geliştirilmiş ve detaylı arayüzü ile tam not almıştır.'
-    },
-    categories: [ProjectCategory.TOOL_MAKING, ProjectCategory.DESKTOP],
-    images: [
-      '/images/book-shop-manager-gallery1.png',
-      '/images/book-shop-manager-gallery2.png',
-      '/images/book-shop-manager-gallery3.png'
-    ],
-    bgImageUrl: '/images/book-shop-manager-gallery2.png',
-    date: { en: 'Feb 2023 - June 2023', tr: 'Şubat 2023 - Haziran 2023' },
-    features: {
-      en: [
-        'Book search functionality',
-        'Editing book information after administrator login',
-        'Purchase and sales operations',
-        'Database integration using MS Access'
-      ],
-      tr: [
-        'Kitap arama fonksiyonu',
-        'Yönetici girişi sonrası kitap bilgisi düzenleme',
-        'Satın alma ve satış işlemleri',
-        'MS Access ile veritabanı entegrasyonu'
-      ]
-    },
-    techStack: ['Java', 'Java Swing', 'Netbeans Ide', 'MS Access'],
   },
 
   {
@@ -405,5 +328,81 @@ export const PROJECTS: Project[] = [
         'Konsol tabanlı giriş/çıkış sistemi'
       ]
     },
+  },
+
+  {
+    id: 'scientific-calculator',
+    title: { en: 'Scientific Calculator App', tr: 'Bilimsel Hesap Makinesi Uygulaması' },
+    shortDescription: {
+      en: 'Feature-rich calculator built with Kotlin and Android Studio.',
+      tr: 'Kotlin ve Android Studio ile geliştirilmiş, kapsamlı özelliklere sahip hesap makinesi.'
+    },
+    longDescription: {
+      en: 'A modern Android application implementing advanced mathematical functions. The project focuses on clean UI design and robust object-oriented programming in Kotlin.',
+      tr: 'Gelişmiş matematiksel fonksiyonlar içeren modern bir Android uygulamasıdır. Proje, temiz arayüz tasarımı ve Kotlin ile sağlam nesne yönelimli programlamaya odaklanmaktadır.'
+    },
+    categories: [ProjectCategory.MOBILE],
+    images: [
+      '/images/calculator-gallery1.png',
+      '/images/calculator-gallery2.png'
+    ],
+    bgImageUrl: '/images/calculator-gallery1.png',
+    githubUrl: 'https://github.com/yunnsbz/calculator',
+    date: { en: 'Sep 2023', tr: 'Eylül 2023' },
+    features: {
+      en: [
+        'Advanced mathematical function integration',
+        'Clean and intuitive UI using modern Android components',
+        'Deep object-oriented implementation in Kotlin',
+        'Optimized for mobile performance'
+      ],
+      tr: [
+        'Gelişmiş matematiksel fonksiyon entegrasyonu',
+        'Modern Android bileşenleri ile temiz ve sezgisel arayüz',
+        'Kotlin ile derinlemesine nesne yönelimli yapı',
+        'Mobil performans için optimize edilmiş yapı'
+      ]
+    },
+    techStack: ['Kotlin', 'Android Studio'],
+    technicalDetails: {
+      en: ['Support for both light and dark modes with Material Design 3.'],
+      tr: ['Material Design 3 ile açık ve koyu tema desteği']
+    },
+  },
+
+  {
+    id: 'book-shop-manager',
+    title: { en: 'Book Shop Manager', tr: 'Kitapçı Yönetim Sistemi' },
+    shortDescription: {
+      en: 'Java bookstore app with user purchases and admin management.',
+      tr: 'Kullanıcı satın alma ve yönetici paneli içeren Java tabanlı kitapçı uygulaması.'
+    },
+    longDescription: {
+      en: 'This project is a bookstore sales and automation application developed using Java, featuring separate interfaces for users and administrators. Users can search for and purchase books, while administrators can manage book information and control the system after logging in. The application was developed as a second-year semester project and achieved a full score due to its detailed visual interface and functionality.',
+      tr: 'Java kullanılarak geliştirilen bu proje, kullanıcılar ve yöneticiler için ayrı arayüzlere sahip bir kitap satış ve otomasyon uygulamasıdır. Kullanıcılar kitap arayıp satın alabilirken, yöneticiler giriş yaptıktan sonra kitap bilgilerini ve sistemi yönetebilir. İkinci sınıf dönem projesi olarak geliştirilmiş ve detaylı arayüzü ile tam not almıştır.'
+    },
+    categories: [ProjectCategory.TOOL_MAKING, ProjectCategory.DESKTOP],
+    images: [
+      '/images/book-shop-manager-gallery1.png',
+      '/images/book-shop-manager-gallery2.png',
+      '/images/book-shop-manager-gallery3.png'
+    ],
+    bgImageUrl: '/images/book-shop-manager-gallery2.png',
+    date: { en: 'Feb 2023 - June 2023', tr: 'Şubat 2023 - Haziran 2023' },
+    features: {
+      en: [
+        'Book search functionality',
+        'Editing book information after administrator login',
+        'Purchase and sales operations',
+        'Database integration using MS Access'
+      ],
+      tr: [
+        'Kitap arama fonksiyonu',
+        'Yönetici girişi sonrası kitap bilgisi düzenleme',
+        'Satın alma ve satış işlemleri',
+        'MS Access ile veritabanı entegrasyonu'
+      ]
+    },
+    techStack: ['Java', 'Java Swing', 'Netbeans Ide', 'MS Access'],
   }
 ];

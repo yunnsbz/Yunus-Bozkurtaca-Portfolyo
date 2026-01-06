@@ -23,11 +23,11 @@ const Hero: React.FC = () => {
           {/* Mobile: Top | Desktop: Right */}
           <div className="w-full lg:w-2/5 flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative w-full max-w-[280px] md:max-w-[320px]">
-              <div className="aspect-square rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+              <div className="relative aspect-square rounded-[2.5rem] overflow-hidden shadow-2xl ring-8 ring-white z-10">
                 <img 
                   src="/images/photo.png" 
                   alt="Yunus Bozkurtaca Profile" 
-                  className="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover transition-all duration-700 hover:scale-110"
                 />
               </div>
             </div>

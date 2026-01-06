@@ -17,16 +17,22 @@ const ProjectDetailPage: React.FC = () => {
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
   const [bgLoaded, setBgLoaded] = useState(false);
 
-  useEffect(() => {
+useEffect(() => {
     window.scrollTo(0, 0);
     
-    // Arka plan resmini önceden yükle
-    if (project?.bgImageUrl) {
-      const img = new Image();
-      img.src = project.bgImageUrl;
-      img.onload = () => setBgLoaded(true);
+    if (project) {
+      // Arka plan görselini yükle
+      const bgImg = new Image();
+      bgImg.src = project.bgImageUrl;
+      bgImg.onload = () => setBgLoaded(true);
+
+      // Galeri görsellerinin tamamını arka planda yükle
+      project.images.forEach((imageSrc) => {
+        const img = new Image();
+        img.src = imageSrc;
+      });
     }
-  }, [projectId, project?.bgImageUrl]);
+  }, [projectId, project]);
 
   useEffect(() => {
     if (isFullscreenOpen) {
