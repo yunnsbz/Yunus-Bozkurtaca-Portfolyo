@@ -141,7 +141,7 @@ useEffect(() => {
             <span className="group-hover:-translate-x-1 transition-transform">←</span> {t('back_to_projects')}
           </button>
 
-          <header className="mb-16">
+          <header className="mb-10">
             <div className="flex flex-wrap gap-3 mb-6">
               {project.categories.map((cat, idx) => (
                 <span key={idx} className="px-3 py-1 bg-white/20 text-white rounded-lg text-xs font-bold backdrop-blur-md">
@@ -155,9 +155,58 @@ useEffect(() => {
             <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter">
               {project.title[language]}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl">
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl whitespace-pre-line">
               {project.longDescription[language]}
             </p>
+
+            {project.githubUrl && (
+              <div className="flex flex-wrap gap-4 pt-8">
+                <a 
+                  href={project.githubUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="group/btn inline-flex items-center gap-1 px-8 py-5 bg-white/10 hover:bg-white/15 text-white border border-white/20 rounded-2xl backdrop-blur-xl transition-all duration-300 shadow-2xl hover:shadow-white/5 hover:scale-[1.02] active:scale-95"
+                >
+                  <div className="flex flex-col items-start">
+                    {t('view_repo')}
+                  </div>
+                  <svg 
+                    className="w-5 h-5 ml-2 opacity-30 transform -rotate-45 group-hover/btn:opacity-100 group-hover/btn:translate-x-1 transition-all duration-300" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor" 
+                    strokeWidth="2"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            )}
+
+            {project.storeUrl && (
+              <div className="flex flex-wrap gap-4 pt-8">
+                <a 
+                  href={project.storeUrl}
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="group/btn inline-flex items-center gap-1 px-8 py-5 bg-white/10 hover:bg-white/15 text-white border border-white/20 rounded-2xl backdrop-blur-xl transition-all duration-300 shadow-2xl hover:shadow-white/5 hover:scale-[1.02] active:scale-95"
+                >
+                  <div className="flex flex-col items-start">
+                    {t('view_store_page')}
+                  </div>
+                  <svg 
+                    className="w-5 h-5 ml-2 opacity-30 transform -rotate-45 group-hover/btn:opacity-100 group-hover/btn:translate-x-1 transition-all duration-300" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor" 
+                    strokeWidth="2"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            )}
+
           </header>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -177,7 +226,7 @@ useEffect(() => {
                   src={project.images[currentGalleryIndex]} 
                   alt={`${project.title[language]} view ${currentGalleryIndex + 1}`} 
                   containerClassName="w-full h-full flex items-center justify-center"
-                  className="relative z-10 max-w-full max-h-full object-contain cursor-zoom-in hover:scale-[1.01]"
+                  className="relative z-10 max-w-full max-h-full object-contain cursor-zoom-in"
                   onClick={() => setIsFullscreenOpen(true)}
                 />
                 
@@ -295,30 +344,6 @@ useEffect(() => {
                   ))}
                 </ul>
                 
-                {project.githubUrl && (
-                  <div className="space-y-4">
-                    <a 
-                      href={project.githubUrl}
-                      target="_blank"
-                      className="flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-colors shadow-lg"
-                    >
-                      {t('view_repo')}
-                    </a>
-                  </div>
-                )}
-
-                {project.storeUrl && (
-                  <div className="mt-10">
-                    <a 
-                      href={project.storeUrl}
-                      target="_blank"
-                      className="block w-full py-4 text-center bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-colors"
-                    >
-                      {t('view_store_page')}
-                    </a>
-                  </div>
-                )}
-
                 <div className="mt-8 pt-8 border-t border-white/10">
                   <h3 className="text-lg font-bold mb-4">{t('sidebar_tech')}</h3>
                   <div className="flex flex-wrap gap-2">

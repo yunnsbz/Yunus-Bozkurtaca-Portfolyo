@@ -9,38 +9,46 @@ export const PROJECTS: Project[] = [
       tr: 'özel editör araçları ve dinamik fizik sistemleri içeren bir simülasyon oyunu.'
     },
     longDescription: {
-      en: 'Developed a robust First Person simulation framework leveraging Unity\'s advanced features. This project focuses on high-performance collision interactions and optimized asset management using Addressables.',
-      tr: 'Unity’nin gelişmiş özelliklerinden faydalanılarak sağlam bir simülasyon altyapısı geliştirildi. Proje, yüksek performanslı çarpışma etkileşimleri ve Addressables kullanılarak optimize edilmiş varlık yönetimine odaklanmaktadır.'
+      en: 'An ongoing large-scale first-person simulation project developed as a dedicated, long-term production. \nDue to its broad scope and systemic complexity, a structured and modular development approach was required, leading to the formation of a dedicated development team. \nThe project focuses on building a robust first-person simulation framework with reusable systems, custom interaction mechanics, and optimized asset management using Unity Addressables.',
+      tr: 'Kapsamı oldukça geniş olan ve uzun vadeli üretim hedefiyle geliştirilen, devam eden bir birinci şahıs simülasyon projesidir. \nProjenin sistemik karmaşıklığı nedeniyle modüler ve planlı bir geliştirme yaklaşımı benimsenmiş, bu doğrultuda özel bir geliştirme ekibi kurulmuştur. \nProje; yeniden kullanılabilir sistemler, özel etkileşim mekanikleri ve Unity Addressables ile optimize edilmiş varlık yönetimi üzerine inşa edilen sağlam bir simülasyon altyapısına odaklanmaktadır.'
     },
+
     categories: [ProjectCategory.GAME_MAKING],
     images: ['/images/bike-illustration.jpg'],
     bgImageUrl: '/images/sport-bicycle-pattern-background.jpg',
     date: { en: 'May 2025 - Present', tr: 'Mayıs 2025 - Devam Ediyor' },
-    //gifUrl: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTN3YjBiNnFzZm42c3phbHhqbjZtOXZzeXhyZDV3NWloNm1yMzVxNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6ZtekN7LuGnulfAQ/giphy.gif',
     features: {
       en: [
         'Custom editor tool using Unity UI Toolkit reducing setup time by 95%',
         'Dynamic physics system handling thousands of collision interactions',
         'On-demand asset streaming with Unity Addressables',
-        'Pre-allocation techniques for RAM management'
+        'Pre-allocation techniques for RAM management',
+        'Multi-state procedural hand interaction system using IK for immersive first-person gameplay'
       ],
       tr: [
         'Unity UI Toolkit kullanılarak geliştirilen özel editör aracı ile kurulum süresinin %95 azaltılması',
         'Binlerce çarpışma etkileşimini yöneten dinamik fizik sistemi',
         'Unity Addressables ile isteğe bağlı varlık yükleme',
-        'RAM yönetimi için ön bellekleme (pre-allocation) teknikleri'
+        'RAM yönetimi için ön bellekleme (pre-allocation) teknikleri',
+        'IK kullanılarak geliştirilen, çok stateli ve immersive birinci şahıs el etkileşim sistemi'
       ]
     },
     techStack: ['Unity', 'C#', 'UI Toolkit', 'Addressables', 'Shader Graph', 'Git', 'Unity Version Control'],
     technicalDetails: {
       en: [
-        'Addressable Assets system integration for 40% faster initial load times.',
-        'Integration of Unity\'s Job System for heavy mathematical computations.',
-        'Custom pooling system reducing Garbage Collection calls by 85%.',
+        'Addressable Assets system integration for 40% faster initial load times',
+        'Custom object detection and interaction system built using Unity Job System as an alternative to default physics',
+        'Procedural hand pose generation with state-based IK blending (idle, reach, pre-grip, grip, release)',
+        'Optimized IK activation to minimize performance overhead',
+        'Advanced use of local/world space transformations and execution order for stable, jitter-free object motion',
+        'Custom pooling system reducing Garbage Collection calls by 85%'
       ],
       tr: [
         'Addressable Assets sistemi entegrasyonu ile başlangıç yükleme süresinde %40 iyileştirme',
-        'Yoğun matematiksel hesaplamalar için Unity Job System entegrasyonu',
+        'Varsayılan Unity fizik sistemi yerine Unity Job System kullanılarak geliştirilen özel obje algılama ve etkileşim sistemi',
+        'Idle, reach, pre-grip, grip ve release durumlarını içeren statü bazlı prosedürel IK el pozları',
+        'Performans maliyetini azaltmak için IK sisteminin yalnızca ihtiyaç halinde aktif edilmesi',
+        'Local/world space dönüşümleri ve execution order kontrolü ile titreşimsiz ve stabil obje hareketleri',
         'Garbage Collection çağrılarını %85 azaltan özel pooling sistemi'
       ]
     },
@@ -48,58 +56,78 @@ export const PROJECTS: Project[] = [
 
   {
     id: 'unity-scriptable-tool',
-    title: { en: 'Unity Scriptable Object Tool', tr: 'Unity Scriptable Object Aracı' },
+    title: {
+      en: 'Unity Scriptable Object Editor Tool',
+      tr: 'Unity Scriptable Object Editör Aracı'
+    },
     shortDescription: {
-      en: 'Workflow optimization tool for side-by-side editing in Unity.',
-      tr: 'Unity içerisinde yan yana düzenleme imkânı sunan iş akışı optimizasyon aracı.'
+      en: 'Custom Unity Editor tool for efficient side-by-side and multi-type ScriptableObject editing.',
+      tr: 'ScriptableObject’leri yan yana ve çoklu tür desteğiyle düzenlemeye olanak tanıyan özel Unity Editor aracı.'
     },
     longDescription: {
-      en: 'A custom Unity Editor tool designed to solve inefficiencies in managing multiple Scriptable Objects. It allows developers to edit various types of data within a single, streamlined window.',
-      tr: 'Birden fazla Scriptable Object yönetiminde yaşanan verimsizlikleri çözmek için geliştirilmiş özel bir Unity Editor aracıdır. Geliştiricilerin farklı veri türlerini tek ve sade bir pencerede düzenlemesine olanak tanır.'
+      en: 'A custom Unity Editor tool designed to streamline the process of viewing, comparing, and editing multiple ScriptableObjects within a single window. The tool enables side-by-side editing of ScriptableObjects of the same type, while also supporting vertical listing of different ScriptableObject types for structured configuration management. \nThis significantly improves iteration speed and reduces context switching during development.',
+      tr: 'Birden fazla ScriptableObject’in tek bir pencere üzerinden görüntülenmesini, karşılaştırılmasını ve düzenlenmesini kolaylaştırmak amacıyla geliştirilmiş özel bir Unity Editor aracıdır. Aynı tür ScriptableObject’lerin yan yana düzenlenmesine olanak tanırken, farklı türlerin dikey listelenmesiyle yapılandırılmış bir konfigürasyon yönetimi sunar. \nGeliştirme sürecinde bağlam değişimini azaltarak iterasyon hızını önemli ölçüde artırır.'
     },
     categories: [ProjectCategory.TOOL_MAKING],
     images: ['/images/scriptable-object-manager-gallery1.jpg'],
     bgImageUrl: '/images/scriptable-object-manager-gallery1.jpg',
     githubUrl: 'https://github.com/yunnsbz/Unity-Scriptable-Object-Tool',
-    date: { en: 'Feb 2025 - May 2025', tr: 'Şubat 2025 - Mayıs 2025' },
+    date: {
+      en: 'Feb 2025 - May 2025',
+      tr: 'Şubat 2025 - Mayıs 2025'
+    },
     features: {
       en: [
-        'Side-by-side editing of multiple Scriptable Objects',
-        'Multi-type editing within a single window',
-        'Streamlined development workflow',
-        'Intuitive UI integration with Unity Editor'
+        'Side-by-side editing of multiple ScriptableObjects of the same type',
+        'Vertical listing and editing of different ScriptableObject types',
+        'Multi-type data visualization within a single editor window',
+        'Basic filtering system for switching between configurations and types',
+        'Support for editing primitive types, vectors, enums, arrays, and object references',
+        'Seamless integration with Unity Editor workflow'
       ],
       tr: [
-        'Birden fazla Scriptable Object’in yan yana düzenlenmesi',
-        'Tek pencere üzerinden çoklu veri türü düzenleme',
-        'Daha verimli ve akıcı geliştirme süreci',
-        'Unity Editor ile uyumlu, sezgisel kullanıcı arayüzü'
+        'Aynı türden birden fazla ScriptableObject’in yan yana düzenlenmesi',
+        'Farklı ScriptableObject türlerinin dikey listelenmesi ve düzenlenmesi',
+        'Tek editör penceresi içinde çoklu veri türü görselleştirme',
+        'Konfigürasyonlar ve türler arasında geçiş için temel filtreleme sistemi',
+        'Primitive tipler, vector, enum, array ve obje referanslarının düzenlenmesi',
+        'Unity Editor iş akışıyla sorunsuz entegrasyon'
       ]
     },
-    techStack: ['Unity', 'C#', 'UI Toolkit', 'Git'],
+    techStack: ['Unity', 'C#', 'Unity Editor API', 'UI Toolkit', 'Git'],
     technicalDetails: {
       en: [
-        'Undo/Redo support integration using UnityEditor.Undo system.',
-        'Persistent window state management across Unity sessions.',
+        'Custom EditorWindow implementation using Unity Editor API',
+        'Side-by-side layout system for comparing ScriptableObject instances',
+        'Dynamic ScriptableObject loading from Resources folder',
+        'Undo/Redo support via UnityEditor.Undo system',
+        'Persistent editor window state across Unity sessions',
+        'Filter-based ScriptableObject type selection system'
       ],
       tr: [
+        'Unity Editor API kullanılarak geliştirilen özel EditorWindow yapısı',
+        'ScriptableObject instance’larını karşılaştırmaya yönelik yan yana düzen sistemi',
+        'Resources klasörü üzerinden dinamik ScriptableObject yükleme',
         'UnityEditor.Undo sistemi ile Undo/Redo desteği',
-        'Unity oturumları arasında pencere durumunun korunması'
+        'Unity oturumları arasında editör pencere durumunun korunması',
+        'Filtre tabanlı ScriptableObject tür seçim sistemi'
       ]
-    },
+    }
   },
+
 
   {
     id: '3d-top-down-shooter',
-    title: { en: '3D Top-Down Shooter Mobile Game', tr: '3D Top-Down Shooter Mobil Oyun' },
+    title: { en: '3D Top-Down Shooter Mobile Game', tr: '3D Top-Down Shooter Mobil Oyunu' },
     shortDescription: {
       en: 'Immersive mobile shooter with procedural animations and complex AI.',
       tr: 'Prosedürel animasyonlar ve gelişmiş yapay zekâ içeren etkileyici mobil shooter oyunu.'
     },
     longDescription: {
-      en: 'A comprehensive 3D mobile game project featuring advanced framework development. The game implements complex AI systems using coroutines and performance-heavy mechanics like object pooling.',
-      tr: 'Gelişmiş altyapı geliştirmeleri içeren kapsamlı bir 3D mobil oyun projesidir. Oyun, coroutine tabanlı karmaşık yapay zekâ sistemleri ve object pooling gibi performans odaklı mekanikler barındırmaktadır.'
+      en: 'A comprehensive 3D mobile game project representing my second game, developed over a longer production cycle with a strong focus on polish and system quality. \nThe project features advanced framework development, well-structured gameplay mechanics, and complex AI systems built using coroutine-based architectures.',
+      tr: 'Daha uzun bir geliştirme süreci boyunca, daha yüksek bir polish ve sistem kalitesi hedeflenerek geliştirilen ikinci 3D mobil oyun projemdir. \nProje; gelişmiş altyapı çalışmaları, iyi yapılandırılmış oynanış mekanikleri ve coroutine tabanlı karmaşık yapay zekâ sistemleri içermektedir.'
     },
+
     categories: [ProjectCategory.GAME_MAKING, ProjectCategory.MOBILE],
     images: [
       '/images/top-down-galery5.jpeg',
@@ -112,50 +140,58 @@ export const PROJECTS: Project[] = [
     date: { en: 'July 2024 - June 2025', tr: 'Temmuz 2024 - Haziran 2025' },
     features: {
       en: [
-        'Advanced and extensible gameplay systems for a 3D mobile game',
-        'Immersive player experience with responsive physics and procedural animations',
-        'Smooth and intuitive in-game user interfaces',
-        'Optimized AI behavior for consistent real-time gameplay',
-        'Automated in-game map generation with visual enhancements',
+        'Advanced and extensible gameplay systems designed for a 3D mobile game',
+        'Immersive player experience powered by responsive physics and procedural animation systems',
+        'Smooth and intuitive in-game user interfaces optimized for touch-based interaction',
+        'Multiple enemy types with distinct behaviors, attack patterns, and decision logic',
+        'Optimized AI behavior enabling stable real-time gameplay with numerous active enemies',
+        'Automated in-game map generation system enhanced with visual and gameplay-driven variations'
       ],
       tr: [
-        '3D mobil oyunlar için gelişmiş ve genişletilebilir oynanış sistemleri',
-        'Duyarlı fizik ve prosedürel animasyonlarla güçlü oyuncu deneyimi',
-        'Akıcı ve sezgisel oyun içi kullanıcı arayüzleri',
-        'Gerçek zamanlı oynanış için optimize edilmiş yapay zekâ davranışları',
-        'Görsel iyileştirmelerle desteklenen otomatik harita üretimi'
+        '3D mobil oyunlar için geliştirilmiş, genişletilebilir ve modüler oynanış sistemleri',
+        'Duyarlı fizik ve prosedürel animasyon sistemleriyle desteklenen güçlü oyuncu deneyimi',
+        'Dokunmatik etkileşime uygun, akıcı ve sezgisel oyun içi kullanıcı arayüzleri',
+        'Her biri farklı davranış, saldırı deseni ve karar mekanizmasına sahip çok sayıda düşman tipi',
+        'Aynı anda çok sayıda düşmanı destekleyen, gerçek zamanlı oynanışa uygun optimize edilmiş yapay zekâ davranışları',
+        'Oynanış ve görsel çeşitlilik sunan otomatik harita üretim sistemi'
       ]
     },
     techStack: ['Unity', 'C#', 'Git', 'Unity Version Control', 'Adobe Illustrator', 'Blender'],
     technicalDetails: {
       en: [
-        'Developed with Unity and C# using a scalable architecture',
-        'Implemented advanced coroutine management for complex AI systems',
-        'Applied object pooling, culling, and performance profiling techniques',
-        'Built custom Unity editor tools to improve development workflows',
-        'Developed a state machine based Enemy AI with sensory perception (vision/hearing cones).',
+        'Developed using Unity and C# with a scalable and modular architecture',
+        'Designed and implemented a complex, extensible state machine system to support multiple enemy archetypes',
+        'Each enemy type features unique states, transitions, and behavior trees built on top of the shared state machine core',
+        'Advanced coroutine and timing management for coordinated AI behaviors and attack sequences',
+        'Integrated sensory perception systems including vision and hearing cones for realistic enemy awareness',
+        'Applied object pooling, culling, and performance profiling techniques to support large numbers of active enemies',
+        'Built custom Unity editor tools to accelerate AI tuning, testing, and iteration workflows'
       ],
       tr: [
-        'Ölçeklenebilir bir mimari ile Unity ve C# kullanılarak geliştirildi',
-        'Karmaşık yapay zekâ sistemleri için gelişmiş coroutine yönetimi',
-        'Object pooling, culling ve performans profilleme teknikleri uygulandı',
-        'Geliştirme sürecini iyileştirmek için özel Unity editör araçları geliştirildi',
-        'Görme ve işitme algısına sahip state machine tabanlı düşman yapay zekâsı geliştirildi'
+        'Ölçeklenebilir ve modüler bir mimari ile Unity ve C# kullanılarak geliştirildi',
+        'Birden fazla düşman arketipini desteklemek için karmaşık ve genişletilebilir bir state machine sistemi tasarlanıp geliştirildi',
+        'Her düşman tipi, ortak state machine çekirdeği üzerine inşa edilmiş kendine özgü state’ler, geçişler ve davranış mantıklarına sahiptir',
+        'Koordine edilmiş yapay zekâ davranışları ve saldırı sekansları için gelişmiş coroutine ve zamanlama yönetimi',
+        'Gerçekçi düşman farkındalığı için görme ve işitme algı sistemlerinin (vision/hearing cone) entegrasyonu',
+        'Çok sayıda aktif düşmanı desteklemek amacıyla object pooling, culling ve performans profilleme teknikleri uygulandı',
+        'Yapay zekâ ayarlama, test ve iterasyon süreçlerini hızlandırmak için özel Unity editör araçları geliştirildi'
       ]
     },
   },
 
   {
     id: 'block-saga-mobile',
-    title: { en: 'Block Saga Mobile Game', tr: 'Block Saga Mobil Oyun' },
+    title: { en: 'Block Saga Mobile Game', tr: 'Block Saga Mobil Oyunu' },
     shortDescription: {
       en: 'Published 2D mobile game available on Google Play Store.',
       tr: 'Google Play Store’da yayımlanmış 2D mobil oyun.'
     },
     longDescription: {
-      en: 'Successfully published a large-scale 2D mobile game on the Play Store. This project involved deep optimization to ensure smooth gameplay on a wide range of mobile devices.',
-      tr: 'Google Play Store’da başarılı şekilde yayımlanmış büyük ölçekli bir 2D mobil oyundur. Proje, farklı donanımlara sahip cihazlarda akıcı oynanış sağlamak için yoğun optimizasyon çalışmaları içermektedir.'
+      en: 'My first fully developed and published 2D Tetris-like mobile game, released on the Google Play Store. \nThe project covers the complete development lifecycle, from initial concept to public release, with a focus on clean gameplay logic, polished 2D visuals, and production-ready mobile workflows. \nCustom pipelines were developed for efficient 2D asset implementation and iteration.',
+      tr: 'Google Play Store’da yayımlanan, geliştirilip yayınladığım ilk 2D Tetris benzeri mobil oyundur. \nProje; ilk konseptten halka açık yayına kadar uzanan tam geliştirme sürecini kapsamakta olup, temiz oynanış mantığı, cilalı 2D görseller ve üretim seviyesinde mobil geliştirme iş akışlarına odaklanmaktadır. \n2D varlıkların hızlı ve verimli şekilde oyuna entegre edilmesi için özel workflow’lar geliştirilmiştir.'
     },
+
+
     categories: [ProjectCategory.GAME_MAKING, ProjectCategory.MOBILE],
     images: [
       '/images/block-saga-gallery1.png',
@@ -168,17 +204,19 @@ export const PROJECTS: Project[] = [
     storeUrl: 'https://play.google.com/store/apps/details?id=com.KartGameClub.Blocksaga',
     features: {
       en: [
-        'Full lifecycle development from concept to publication',
-        'Performance bottleneck resolution using coroutines',
-        'Agile workflow coordination using Miro and Jira',
-        'Responsive UI for various screen ratios',
-        'Google AdMob for Rewarded Ads'
+        'Full lifecycle development from concept, prototyping, and production to Play Store release',
+        'Well-structured and maintainable gameplay logic for a classic 2D puzzle experience',
+        'Custom workflows for efficient 2D visual implementation and iteration',
+        'Responsive and adaptive UI supporting multiple screen resolutions and aspect ratios',
+        'Agile development workflow coordination using Miro and Jira',
+        'Monetization integration using Google AdMob Rewarded Ads'
       ],
       tr: [
-        'Fikir aşamasından yayınlanmaya kadar tam geliştirme süreci',
-        'Coroutine kullanarak performans darboğazlarının giderilmesi',
-        'Miro ve Jira ile çevik iş akışı yönetimi',
-        'Farklı ekran oranlarına uyumlu kullanıcı arayüzü',
+        'Konsept, prototipleme, üretim ve Play Store yayınına kadar uçtan uca geliştirme süreci',
+        'Klasik 2D puzzle deneyimi için temiz, sürdürülebilir ve okunabilir oynanış mantığı',
+        '2D görsellerin oyuna hızlı ve tutarlı şekilde entegre edilmesini sağlayan özel workflow’lar',
+        'Farklı ekran çözünürlükleri ve en-boy oranlarına uyumlu, duyarlı kullanıcı arayüzü',
+        'Miro ve Jira kullanılarak yürütülen çevik geliştirme süreci',
         'Ödüllü reklamlar için Google AdMob entegrasyonu'
       ]
     },
@@ -193,8 +231,8 @@ export const PROJECTS: Project[] = [
       tr: 'C++ ve Qt ile geliştirilmiş, multithreaded masaüstü dosya yöneticisi.'
     },
     longDescription: {
-      en: 'An efficient and responsive desktop application for file management. It utilizes multithreading for asynchronous operations and features a custom-built intuitive GUI.',
-      tr: 'Dosya yönetimi için verimli ve hızlı tepki veren bir masaüstü uygulamasıdır. Asenkron işlemler için çok iş parçacığı kullanır ve özel olarak tasarlanmış sezgisel bir arayüze sahiptir.'
+      en: 'A lightweight, modern, and extensible cross-platform file manager developed with Qt and C++. \nThe project targets both Windows and Linux platforms and focuses on responsive user interaction, flexible navigation paradigms, and a customizable interface. \nSpecial attention is given to asynchronous file operations to ensure a smooth user experience even under heavy I/O workloads.',
+      tr: 'Qt ve C++ kullanılarak geliştirilen, Windows ve Linux platformlarını hedefleyen hafif, modern ve genişletilebilir bir dosya yöneticisi uygulamasıdır. \nProje; akıcı kullanıcı etkileşimi, esnek dosya gezinti paradigmaları ve özelleştirilebilir bir arayüz sunmaya odaklanmaktadır. \nYoğun I/O işlemleri altında dahi sorunsuz bir deneyim sağlamak için asenkron dosya operasyonlarına özel önem verilmiştir.'
     },
     categories: [ProjectCategory.TOOL_MAKING, ProjectCategory.DESKTOP],
     images: [
@@ -207,73 +245,96 @@ export const PROJECTS: Project[] = [
     date: { en: 'Mar 2025 - Present', tr: 'Mart 2025 - Devam Ediyor' },
     features: {
       en: [
-        'Multithreaded asynchronous operations',
-        'Signal-slot mechanism for drag-and-drop',
-        'Custom folder tree navigation'
+        'Cross-platform support for Windows and Linux',
+        'Dual-pane and column-based file browsing layouts',
+        'Tab-based navigation for efficient multi-directory workflows',
+        'Tree view navigation with customizable view settings',
+        'Highly customizable and modern user interface',
+        'Support for standard file operations such as copy, move, delete, and rename'
       ],
       tr: [
-        'Çok iş parçacıklı asenkron işlemler',
-        'Sürükle-bırak için signal-slot mekanizması',
-        'Özel klasör ağaç navigasyonu'
+        'Windows ve Linux için çapraz platform desteği',
+        'Çift panelli ve kolon tabanlı dosya gezinti düzenleri',
+        'Verimli çoklu dizin kullanımı için sekme (tab) desteği',
+        'Özelleştirilebilir görünüm ayarlarına sahip ağaç görünümü',
+        'Yüksek derecede özelleştirilebilir ve modern kullanıcı arayüzü',
+        'Kopyalama, taşıma, silme ve yeniden adlandırma gibi temel dosya işlemleri'
       ]
     },
     techStack: ['QT6.8', 'C++', 'QT Creator', 'Git'],
     technicalDetails: {
       en: [
-        'Lock-free queue implementation for inter-thread file operation requests.',
-        'Custom QFileSystemModel subclass for enhanced icon caching.',
-        'Deep integration with Windows Shell API for context menu support.',
+        'Asynchronous file operations implemented using a multithreaded architecture',
+        'Lock-free queue system for dispatching file operation requests between worker threads',
+        'Platform-specific integration with Windows Shell API for native context menu support',
+        'Architecture designed for future extensibility across additional platforms and features'
       ],
       tr: [
-        'İş parçacıkları arası dosya işlemleri için lock-free kuyruk implementasyonu',
-        'Gelişmiş ikon önbellekleme için özel QFileSystemModel türevi',
-        'Sağ tık menüsü desteği için Windows Shell API entegrasyonu'
+        'Çok iş parçacıklı bir mimari kullanılarak geliştirilen asenkron dosya işlemleri',
+        'Worker thread’ler arasında dosya işlem taleplerinin iletilmesi için lock-free kuyruk sistemi',
+        'Yerel sağ tık menüsü desteği için Windows Shell API ile platforma özel entegrasyon',
+        'İleride yeni platformlar ve özellikler eklenebilecek şekilde tasarlanmış genişletilebilir mimari'
       ]
     },
   },
 
   {
     id: 'financial-strategy-simulation',
-    title: { en: 'Financial Strategy Simulation', tr: 'Finansal Strateji Simülasyonu' },
-    shortDescription: {
-      en: 'Interactive strategy monitoring UI using C++17 and Qt.',
-      tr: 'C++17 ve Qt kullanılarak geliştirilmiş etkileşimli strateji izleme arayüzü.'
+    title: {
+      en: 'Financial Strategy Monitoring Simulation',
+      tr: 'Finansal Strateji İzleme Simülasyonu'
+    },
+    shortDescription: { 
+      en: 'Interactive strategy monitoring UI using C++17 and Qt.', 
+      tr: 'C++17 ve Qt kullanılarak geliştirilmiş etkileşimli strateji izleme arayüzü.' 
     },
     longDescription: {
-      en: 'A specialized tool for monitoring financial strategies. It features custom UI elements built with QPaint and high-performance filtering for complex data sets.',
-      tr: 'Finansal stratejilerin izlenmesi için geliştirilmiş özel bir araçtır. QPaint ile oluşturulmuş özel arayüz bileşenleri ve karmaşık veri setleri için yüksek performanslı filtreleme içerir.'
+      en: 'A standalone simulation project designed to mimic the behavior of a live financial strategy monitoring system. \nThe application focuses on presenting strategies and their associated orders in a clear, interactive, and responsive user interface. \nAlthough it does not connect to real trading systems or data feeds, it is architected to resemble real-world monitoring tools in terms of data flow, UI responsiveness, and scalability.',
+      tr: 'Canlı bir finansal strateji izleme sisteminin davranışlarını taklit etmek amacıyla geliştirilmiş bağımsız bir simülasyon projesidir. \nUygulama; stratejilerin ve bunlara bağlı emirlerin net, etkileşimli ve akıcı bir kullanıcı arayüzü üzerinden sunulmasına odaklanır. \nGerçek veri kaynaklarına bağlanmamakla birlikte, veri akışı, arayüz tepkiselliği ve ölçeklenebilirlik açısından gerçek dünya izleme araçlarını örnek alan bir mimariyle tasarlanmıştır.'
     },
     categories: [ProjectCategory.TOOL_MAKING, ProjectCategory.DESKTOP],
     images: ['/images/strategy-sim-gallery1.png'],
     bgImageUrl: '/images/strategy-sim-gallery1.png',
-    date: { en: 'June 2025', tr: 'Haziran 2025' },
+    date: {
+      en: 'June 2025',
+      tr: 'Haziran 2025'
+    },
     githubUrl: 'https://github.com/yunnsbz/StrategyMonitor',
     features: {
       en: [
-        'Interactive UI built with C++17 and Qt',
-        'Custom UI elements using QPaint',
-        'Proxy models for efficient filtering and sorting',
-        'Clean, maintainable software architecture'
+        'Strategy list panel displaying strategy ID, type, and runtime status (Running / Paused)',
+        'Detailed order table view showing price, filled volume, active volume, and order side',
+        'Interactive filtering and sorting via table headers and context menus',
+        'Clear visual status indicators and informative tooltips for improved readability',
+        'User-friendly layout optimized for monitoring dense data sets'
       ],
       tr: [
-        'C++17 ve Qt ile geliştirilmiş etkileşimli arayüz',
-        'QPaint kullanılarak oluşturulmuş özel UI bileşenleri',
-        'Verimli filtreleme ve sıralama için proxy modeller',
-        'Temiz ve sürdürülebilir yazılım mimarisi'
+        'Strateji ID, tür ve çalışma durumunu (Running / Paused) gösteren strateji liste paneli',
+        'Fiyat, gerçekleşen hacim, aktif hacim ve emir yönünü gösteren detaylı emir tablosu',
+        'Tablo başlıkları ve sağ tık menüleri üzerinden etkileşimli filtreleme ve sıralama',
+        'Okunabilirliği artıran görsel durum göstergeleri ve bilgilendirici tooltip’ler',
+        'Yoğun veri setlerinin izlenmesine uygun, kullanıcı dostu arayüz düzeni'
       ]
     },
-    techStack: ['QT6.8', 'C++', 'QT Creator', 'Git'],
+    techStack: ['Qt 6.8', 'C++17', 'CMake', 'Qt Creator', 'Git'],
     technicalDetails: {
       en: [
-        'MVVM architecture pattern with LiveData for UI reactivity.',
-        'Real-time data stream processing with low-latency signal-slot handling.',
+        'Model/View architecture utilizing proxy models for high-performance filtering and sorting',
+        'Custom UI rendering using QPaint for fine-grained visual control',
+        'Low-latency signal-slot communication simulating real-time data updates',
+        'Scalable data handling architecture designed to support large numbers of strategies and orders',
+        'Clear separation of data, presentation, and interaction layers for maintainable code structure'
       ],
       tr: [
-        'UI tepkiselliği için LiveData içeren MVVM mimarisi',
-        'Düşük gecikmeli signal-slot yapısı ile gerçek zamanlı veri işleme'
+        'Yüksek performanslı filtreleme ve sıralama için proxy modeller kullanan Model/View mimarisi',
+        'Görsel kontrolü artırmak amacıyla QPaint ile geliştirilmiş özel arayüz çizimleri',
+        'Gerçek zamanlı veri güncellemelerini simüle eden düşük gecikmeli signal-slot iletişimi',
+        'Çok sayıda strateji ve emri destekleyecek şekilde tasarlanmış ölçeklenebilir veri işleme yapısı',
+        'Bakımı kolay ve genişletilebilir bir kod yapısı için veri, sunum ve etkileşim katmanlarının ayrılması'
       ]
-    },
+    }
   },
+
 
   {
     id: 'okey-game',
@@ -283,8 +344,8 @@ export const PROJECTS: Project[] = [
       tr: 'Yapay zekâya karşı oynanabilen komut satırı tabanlı 101 Okey oyunu.'
     },
     longDescription: {
-      en: 'A command-line implementation of the popular board game 101 Okey. The game supports tile distribution, turn-based gameplay, and core rules in a text-based format. Developed in C during university to strengthen algorithmic thinking and game logic skills.',
-      tr: 'Popüler masa oyunu 101 Okey’in komut satırı tabanlı bir implementasyonudur. Oyun, taş dağıtımı, sıra tabanlı oynanış ve temel kuralları metin tabanlı olarak destekler. Üniversite döneminde algoritmik düşünme ve oyun mantığı becerilerini geliştirmek amacıyla C dilinde geliştirilmiştir.'
+      en: 'A command-line implementation of the popular board game 101 Okey. \nThe game supports tile distribution, turn-based gameplay, and core rules in a text-based format. \nDeveloped in C during the first year of university, focusing on strengthening algorithmic thinking and core game logic skills.',
+      tr: 'Popüler masa oyunu 101 Okey’in komut satırı tabanlı bir implementasyonudur. \nOyun, taş dağıtımı, sıra tabanlı oynanış ve temel kuralları metin tabanlı olarak destekler. \nÜniversitenin 1. yılında algoritmik düşünme ve oyun mantığı becerilerini geliştirmek amacıyla C dilinde geliştirilmiştir.'
     },
     categories: [ProjectCategory.GAME_MAKING],
     images: [
@@ -378,8 +439,8 @@ export const PROJECTS: Project[] = [
       tr: 'Kullanıcı satın alma ve yönetici paneli içeren Java tabanlı kitapçı uygulaması.'
     },
     longDescription: {
-      en: 'This project is a bookstore sales and automation application developed using Java, featuring separate interfaces for users and administrators. Users can search for and purchase books, while administrators can manage book information and control the system after logging in. The application was developed as a second-year semester project and achieved a full score due to its detailed visual interface and functionality.',
-      tr: 'Java kullanılarak geliştirilen bu proje, kullanıcılar ve yöneticiler için ayrı arayüzlere sahip bir kitap satış ve otomasyon uygulamasıdır. Kullanıcılar kitap arayıp satın alabilirken, yöneticiler giriş yaptıktan sonra kitap bilgilerini ve sistemi yönetebilir. İkinci sınıf dönem projesi olarak geliştirilmiş ve detaylı arayüzü ile tam not almıştır.'
+      en: 'This project is a bookstore sales and automation application developed using Java, featuring separate interfaces for users and administrators. \nUsers can search for and purchase books, while administrators can manage book information and control the system after logging in. \nThe application was developed as a second-year semester project and achieved a full score due to its detailed visual interface and functionality.',
+      tr: 'Java kullanılarak geliştirilen bu proje, kullanıcılar ve yöneticiler için ayrı arayüzlere sahip bir kitap satış ve otomasyon uygulamasıdır. \nKullanıcılar kitap arayıp satın alabilirken, yöneticiler giriş yaptıktan sonra kitap bilgilerini ve sistemi yönetebilir. \nİkinci sınıf dönem projesi olarak geliştirilmiş ve detaylı arayüzü ile tam not almıştır.'
     },
     categories: [ProjectCategory.TOOL_MAKING, ProjectCategory.DESKTOP],
     images: [

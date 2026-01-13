@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative pt-16 pb-12 lg:pt-32 lg:pb-24 overflow-hidden bg-white">
+    <section className="relative pt-28 pb-12 lg:pt-32 lg:pb-24 overflow-hidden bg-white">
       {/* Soft Background Accent */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] bg-gray-50 rounded-full blur-[100px] z-0"></div>
       
