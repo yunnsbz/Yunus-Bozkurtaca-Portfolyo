@@ -16,15 +16,7 @@ export const PROJECTS: Project[] = [
     status: ProjectStatus.ONGOING,
     role: { en: 'Gameplay & Tools Programmer', tr: 'Oynanış ve Araç Programcısı' },
     teamSize: 3,
-    images: [
-      {
-        src: '/images/bike-illustration.jpg',
-        caption: {
-          en: 'Concept illustration for the workshop setting. The project is in active development and in-game footage is not public yet.',
-          tr: 'Atölye temasına ait konsept illüstrasyonu. Proje aktif geliştirme aşamasında; oyun içi görüntüler henüz paylaşılmıyor.'
-        }
-      }
-    ],
+    images: [],
     bgImageUrl: '/images/sport-bicycle-pattern-background.jpg',
     date: { en: 'May 2025 - Present', tr: 'Mayıs 2025 - Devam Ediyor' },
     features: {
