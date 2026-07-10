@@ -54,7 +54,7 @@ const Header: React.FC = () => {
             isScrolled || isHome ? 'text-black' : 'text-white'
           }`}
         >
-          YB.
+          Yunus Bozkurtaca
         </Link>
         
         <div className="hidden md:flex items-center gap-8">

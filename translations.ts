@@ -24,16 +24,43 @@ export const UI_STRINGS: Record<Language, Record<string, string>> = {
     form_message_placeholder: "What would you like to talk about?",
     form_submit: "Send Message",
     back_to_projects: "Back to Projects",
-    gallery_label: "IMAGES",
-    sidebar_features: "Core Features",
-    sidebar_tech: "Tech Stack",
-    technical_details_title: "Technical Details",
     not_found: "Project Not Found",
     return_home: "Return Home",
     footer_rights: "All rights reserved.",
-    view_repo: "View Repository",
-    view_store_page: "View Store Page",
-    home_page_email: "Email"
+    home_page_email: "Email",
+
+    section_challenges: "Challenges & Solutions",
+
+    // Short labels for the side rail; the section headings stay long.
+    toc_aria: "Project sections",
+    toc_overview: "Overview",
+    toc_gallery: "Gallery",
+    toc_features: "Features",
+    toc_challenges: "Challenges",
+    toc_tech: "Tech Stack",
+
+    no_visuals_title: "Visuals in progress",
+    no_visuals_desc: "This project is in active development. Screenshots will be published once the systems are presentable.",
+
+    challenge_problem: "The Problem",
+    challenge_solution: "The Solution",
+    challenge_outcome: "Outcome",
+
+    section_features: "Core Features",
+    section_tech_stack: "Tech Stack",
+    sidebar_role: "Role",
+    sidebar_team: "Team",
+    team_solo: "Solo Project",
+    team_suffix: "person team",
+
+    link_github: "View Repository",
+    link_store: "View Store Page",
+    link_demo: "Live Demo",
+    link_video: "Watch Video",
+    link_article: "Read Article",
+
+    prev_project: "Previous Project",
+    next_project: "Next Project"
   },
   tr: {
     nav_projects: "Projeler",
@@ -57,15 +84,42 @@ export const UI_STRINGS: Record<Language, Record<string, string>> = {
     form_message_placeholder: "Nelerden bahsetmek istersiniz?",
     form_submit: "Mesajı Gönder",
     back_to_projects: "Projelere Dön",
-    gallery_label: "GÖRSEL",
-    sidebar_features: "Temel Özellikler",
-    sidebar_tech: "Teknolojiler",
-    technical_details_title: "Teknik Detaylar",
     not_found: "Proje Bulunamadı",
     return_home: "Ana Sayfaya Dön",
     footer_rights: "Tüm hakları saklıdır.",
-    view_repo: "Repository'i Görüntüle",
-    view_store_page: "Mağaza Sayfasını Görüntüle",
-    home_page_email: "E-posta"
+    home_page_email: "E-posta",
+
+    section_challenges: "Zorluklar ve Çözümler",
+
+    // Yan navigasyon için kısa etiketler; bölüm başlıkları uzun kalır.
+    toc_aria: "Proje bölümleri",
+    toc_overview: "Genel Bakış",
+    toc_gallery: "Galeri",
+    toc_features: "Özellikler",
+    toc_challenges: "Zorluklar",
+    toc_tech: "Teknolojiler",
+
+    no_visuals_title: "Görseller hazırlanıyor",
+    no_visuals_desc: "Bu proje aktif geliştirme aşamasında. Sistemler gösterilebilir hale geldikçe ekran görüntüleri paylaşılacak.",
+
+    challenge_problem: "Problem",
+    challenge_solution: "Çözüm",
+    challenge_outcome: "Sonuç",
+
+    section_features: "Temel Özellikler",
+    section_tech_stack: "Teknolojiler",
+    sidebar_role: "Rol",
+    sidebar_team: "Ekip",
+    team_solo: "Bireysel Proje",
+    team_suffix: "kişilik ekip",
+
+    link_github: "Repository'i Görüntüle",
+    link_store: "Mağaza Sayfasını Görüntüle",
+    link_demo: "Canlı Demo",
+    link_video: "Videoyu İzle",
+    link_article: "Yazıyı Oku",
+
+    prev_project: "Önceki Proje",
+    next_project: "Sonraki Proje"
   }
 };
