@@ -16,7 +16,25 @@ export const PROJECTS: Project[] = [
     status: ProjectStatus.ONGOING,
     role: { en: 'Gameplay & Tools Programmer', tr: 'Oynanış ve Araç Programcısı' },
     teamSize: 3,
-    images: [],
+    images: [
+      { src: '/images/mtwd-gameplay.png',
+         caption: { 
+           en: "Work-in-progress gameplay view of the multi-state hand interaction system. Each hand tracks its own state, and the alignment chain lets multiple parts be aligned onto one another in sequence. The available actions react to the current game state and to what each hand is doing, so the prompts change with the situation rather than being fixed. Debug overlay is visible; visuals are not final.", 
+           tr: "Çok durumlu el etkileşim sisteminin geliştirme aşamasındaki oynanış görünümü. Her el kendi durumunu takip ediyor; hizalama zinciri ise birden fazla parçanın sırayla üst üste hizalanmasını sağlıyor. Kullanılabilir aksiyonlar hem oyun durumuna hem de ellerin durumuna göre tepki veriyor, dolayısıyla istemler sabit değil duruma göre değişiyor. Debug katmanı açık; görseller nihai değildir." 
+        }
+      },
+      { src: '/images/mtwd-editor.png',
+      caption: { 
+        en: "Custom Unity UI Toolkit editor window for configuring bike parts in bulk. It scans the hierarchy and reports each part's status — flagging missing renderers and colliders — while letting scripts be assigned and multiple objects be set at once. It also draws per-object handles in the scene, and keeps the shared script references wired up automatically as parts are edited.", 
+        tr: "Bisiklet parçalarını toplu yapılandırmak için Unity UI Toolkit ile geliştirilen özel editör penceresi. Hiyerarşiyi tarayıp her parçanın durumunu raporluyor — eksik renderer ve collider'ları işaretliyor — ve aynı anda birden fazla objeye script atayıp ayar yapabiliyor. Ayrıca objeye özel handle'ları sahnede gösteriyor ve düzenlemeler sırasında ortak script referanslarını otomatik olarak yönetiyor." }
+       },
+       { src: '/images/mtwd-addressables.png',
+         caption: { 
+           en: "Addressable groups splitting parts and items into separately streamed bundles, so assets are loaded on demand instead of being kept in memory up front.", 
+           tr: "Parçaları ve item'ları ayrı paketlere bölen Addressable grupları; varlıklar en baştan bellekte tutulmak yerine isteğe bağlı olarak yükleniyor." 
+          }
+       }
+    ],
     bgImageUrl: '/images/sport-bicycle-pattern-background.jpg',
     date: { en: 'May 2025 - Present', tr: 'Mayıs 2025 - Devam Ediyor' },
     features: {
