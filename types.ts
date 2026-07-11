@@ -45,6 +45,7 @@ export const StatusTranslations: Record<Language, Record<ProjectStatus, string>>
 export enum ProjectLinkType {
   GITHUB = 'github',
   STORE = 'store',
+  ITCH = 'itch',
   DEMO = 'demo',
   VIDEO = 'video',
   ARTICLE = 'article'

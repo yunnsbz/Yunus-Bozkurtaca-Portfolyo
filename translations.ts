@@ -55,6 +55,7 @@ export const UI_STRINGS: Record<Language, Record<string, string>> = {
 
     link_github: "View Repository",
     link_store: "View Store Page",
+    link_itch: "Play on itch.io",
     link_demo: "Live Demo",
     link_video: "Watch Video",
     link_article: "Read Article",
@@ -115,6 +116,7 @@ export const UI_STRINGS: Record<Language, Record<string, string>> = {
 
     link_github: "Repository'i Görüntüle",
     link_store: "Mağaza Sayfasını Görüntüle",
+    link_itch: "itch.io'da Oyna",
     link_demo: "Canlı Demo",
     link_video: "Videoyu İzle",
     link_article: "Yazıyı Oku",

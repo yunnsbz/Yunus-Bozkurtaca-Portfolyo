@@ -448,6 +448,7 @@ export const PROJECTS: Project[] = [
       { src: '/images/block-saga-gallery4.png' }
     ],
     bgImageUrl: '/images/block-saga-gallery2.png',
+    links: [{ type: ProjectLinkType.ITCH, url: 'https://yunusbzkrtc.itch.io/block-saga' }],
     date: { en: 'Jan 2024 - Nov 2024', tr: 'Ocak 2024 - Kasım 2024' },
     features: {
       en: [
